@@ -5,12 +5,9 @@ export interface Post {
         image: string;
     },
     body: [object],
-    mainImage: {
-        asset : {
-            _ref: string
-        }
-    },
+    mainImage: {},
     slug: {
+        _type : string,
         current : string
     }
 

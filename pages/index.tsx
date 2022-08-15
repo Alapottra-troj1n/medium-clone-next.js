@@ -1,6 +1,6 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link';
 import Header from '../components/Header';
 import {sanityClient} from '../sanity';
 import { Post } from '../typing';
@@ -43,6 +43,27 @@ const Home = ({posts} : Props) => {
 
 
       </div>
+
+
+    <div>
+
+      {posts.map(post =>  (
+
+          <Link href={`/post/${post.slug.current}`} key={post._id}>
+              <div>
+                <h2>I am a post</h2>
+              </div>
+          </Link>
+
+      )  )}
+
+
+    </div>
+
+
+
+
+
     
     </div>
   )
