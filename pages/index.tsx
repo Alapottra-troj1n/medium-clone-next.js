@@ -45,7 +45,7 @@ const Home = ({posts} : Props) => {
       </div>
 
 
-    <div className='max-w-7xl mx-auto py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+    <div className='max-w-7xl gap-5 mx-auto py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
 
       {posts.map(post =>  (
 
