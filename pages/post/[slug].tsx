@@ -3,6 +3,7 @@ import React from "react";
 import Header from "../../components/Header";
 import { sanityClient, urlFor } from "../../sanity";
 import { Post } from "../../typing";
+import PortableText from "react-portable-text"
 
 
 interface Props {
@@ -24,9 +25,43 @@ console.log(post);
 
         <div className='flex items-center gap-3'>
           <img className='h-10 w-10 rounded-full' src={urlFor(post.author.image).url()} alt="" />
-          <p>Posted by {post.author.name} at {new Date(post._createdAt).toLocaleDateString()} </p>
+          <p>Posted by <span className='text-green-400' >{post.author.name}</span> at {new Date(post._createdAt).toLocaleDateString()} </p>
           
         </div>
+     
+
+
+      <div>
+        <PortableText 
+          dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
+          projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
+        content={post.body}
+        serializers={{
+          
+          h1: (props: any) => {
+            <h1 className='text-2xl font-bold my-5' {...props} />
+
+          },
+          h2: (props: any) => {
+            <h2 className='text-xl font-bold my-5' {...props} />
+            
+          },
+          li: (props: any) => {
+            <li className='ml-4 list-disc' {...props} />
+            
+          },
+          link: (props: any) => {
+            <a className='text-blue-500 cursor-pointer hover:underline' {...props} />
+            
+          }
+        
+        
+
+        }
+            
+        }
+        />
+      </div>
       </article>
 
     </div>
