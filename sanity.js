@@ -1,10 +1,10 @@
 import {
     createClient,
     createPortableTextComponent,
-    createImageUrlBuilder,
     createPreviewSubscriptionHook,
     createCurrentUserHook
   } from "next-sanity";
+  import createImageUrlBuilder from '@sanity/image-url';
 
 
 
