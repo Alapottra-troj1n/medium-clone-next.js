@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import React from "react";
 import Header from "../../components/Header";
-import { sanityClient } from "../../sanity";
+import { sanityClient, urlFor } from "../../sanity";
 import { Post } from "../../typing";
 
 
@@ -15,10 +15,26 @@ console.log(post);
   return (
     <div>
       <Header />
-      <h2>{post.title}</h2>
+      
+
+      <img className='w-full h-40 object-cover' src={urlFor(post.mainImage).url()} alt="" />
+
+      <article className='max-w-3xl mx-auto p-5' >
+        <h2 className='text-3xl mt-10 mb-3 font-bold' >{post.title}</h2>
+
+        <div className='flex items-center gap-3'>
+          <img className='h-10 w-10 rounded-full' src={urlFor(post.author.image).url()} alt="" />
+          <p>Posted by {post.author.name} at {new Date(post._createdAt).toLocaleDateString()} </p>
+          
+        </div>
+      </article>
+
     </div>
   );
 };
+
+
+
 
 export default PostPage;
 
@@ -50,6 +66,7 @@ export const getStaticProps : GetStaticProps = async({params})=> {
 
     const query = `*[_type == 'post' && slug.current == $slug][0]{
         _id,
+        _createdAt,
         title,
         author -> {
         name,
@@ -75,6 +92,7 @@ export const getStaticProps : GetStaticProps = async({params})=> {
       }
 
     return {
-      props: { post }, // will be passed to the page component as props
+      props: { post }, 
+      revalidate: 60,// will be passed to the page component as props
     }
   }
