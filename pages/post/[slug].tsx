@@ -31,7 +31,7 @@ console.log(post);
      
 
 
-      <div>
+      <div className='py-2'>
         <PortableText 
           dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
           projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!}
@@ -63,6 +63,29 @@ console.log(post);
         />
       </div>
       </article>
+
+
+      <hr className="max-w-lg mx-auto border border-yellow-300"  />
+
+      <form className="flex flex-col p-5 max-w-2xl mx-auto mb-10" >
+        <h2 className="text-2xl font-bold my-5 " >Leave a Comment Below</h2>
+
+
+          <label className=" block mb-5"> 
+            <span className='mr-5' >Name</span>
+            <input className='shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500  outline-none focus:ring' type="text" placeholder="Alapottra Chakma"  name="" id="" />      
+          </label   >
+          <label  className=" block mb-5" > 
+            <span className='mr-5' >Email</span>
+            <input  className='shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500  outline-none focus:ring' type="email" placeholder="alapottrachakma@gmail.com"  name="" id="" />      
+          </label>
+          <label  className=" block mb-5" > 
+            <span className='mr-5' >Comment</span>
+            <textarea className='shadow border rounded py-2 px-3 form-textarea mt-1 block w-full ring-yellow-500 outline-none focus:ring '  rows={6} placeholder="Comment"  name="" id="" />      
+          </label>
+
+
+      </form>
 
     </div>
   );
