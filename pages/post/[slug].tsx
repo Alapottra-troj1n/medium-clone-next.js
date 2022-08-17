@@ -29,6 +29,8 @@ const PostPage = ({ post }: Props) => {
 
   const onSubmit: SubmitHandler<MyFormInput> = async(data) => {
 
+    console.log(data);
+
   }
 
   return (
@@ -96,8 +98,8 @@ const PostPage = ({ post }: Props) => {
             className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500  outline-none focus:ring"
             type="text"
             placeholder="Alapottra Chakma"
-            name=""
-            id=""
+           
+           
           />
         </label>
         <label className=" block mb-5">
@@ -107,8 +109,9 @@ const PostPage = ({ post }: Props) => {
             className="shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500  outline-none focus:ring"
             type="email"
             placeholder="alapottrachakma@gmail.com"
-            name=""
-            id=""
+            
+          
+           
           />
         </label>
         <label className=" block mb-5">
@@ -118,8 +121,7 @@ const PostPage = ({ post }: Props) => {
             className="shadow border rounded py-2 px-3 form-textarea mt-1 block w-full ring-yellow-500 outline-none focus:ring "
             rows={8}
             placeholder="Comment"
-            name=""
-            id=""
+           
           />
         </label>
 
